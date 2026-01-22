@@ -34,7 +34,7 @@ export default function ServicesSection() {
     }
   ]
   return (
-    <section className="flex flex-col items-center bg-white w-full">
+    <section id="services" className="flex flex-col items-center bg-white w-full">
       <h2 className="text-3xl font-bold mb-4 mt-20 text-center max-w-2xl">
         Services
       </h2>
@@ -42,15 +42,14 @@ export default function ServicesSection() {
         {services.map((service, index) => {
           const IconComponent = service.icon;
           return (
-            <div key={index} className="bg-secondary text-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group"
-            >
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4 group-hover:bg-primary/20 transition-colors">
-                <IconComponent className="text-primary" size={24} />
+            <div key={index} className="bg-secondary text-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+              <div className="flex items-center mx-auto justify-center w-12 h-12 bg-primary/10 rounded-full mb-4 group-hover:bg-primary/20 transition-colors">
+                <IconComponent className="text-white" size={24} />
               </div>
               <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed text-gray-300">
                 {service.description}
               </p>
               <div className="mt-4 w-full h-1 bg-gradient-to-r from-primary/20 to-primary/60 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>

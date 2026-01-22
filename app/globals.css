@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fef9f7;
+  --foreground: #2c2c2c;
   --primary: #8a9a84;
   --secondary: #2c3e33;
 }
@@ -21,4 +21,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   @apply font-sans
+}
+
+.btn {
+  @apply bg-white text-foreground py-3 px-6 rounded-md transition-colors cursor-pointer;
 }
