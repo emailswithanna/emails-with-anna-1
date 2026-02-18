@@ -1,47 +1,42 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-secondary text-white py-8">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-4 mb-3">
+            <Link href="/" className="flex flex-col md:flex-row items-center gap-4 mx-auto md:mx-0 mb-3 w-max">
               <Image src="/white-logo.svg" alt="Emails with Anna Logo" width={40} height={40} />
-              <span className="font-bold text-lg">Emails with Anna</span>
-            </div>
-            <p className="text-gray-300 text-sm">
-              Professional email marketing services for businesses.
+              <span className="font-semibold font-heading text-lg">Emails with Anna</span>
+            </Link>
+            <p className="opacity-70 text-sm mx-auto md:mx-0 max-w-xs text-center md:text-left">
+              Thoughtful email marketing, built for real humans
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <div className="space-y-1">
-              <Link href="/" className="block hover:text-white text-sm">Home</Link>
-              <Link href="#services" className="block hover:text-white text-sm">Services</Link>
-              <Link href="#about" className="block hover:text-white text-sm">About</Link>
-              <Link href="#contact" className="block hover:text-white text-sm">Contact</Link>
-            </div>
+          <div className="space-y-1">
+            <Link href="#services" className="block mx-auto md:mx-0 hover:opacity-70 transition-opacity duration-300 text-sm w-max">Services</Link>
+            <Link href="#about" className="block mx-auto md:mx-0 hover:opacity-70 transition-opacity duration-300 text-sm w-max">About</Link>
+            <Link href="#contact" className="block mx-auto md:mx-0 hover:opacity-70 transition-opacity duration-300 text-sm w-max">Contact</Link>
           </div>
 
+
           {/* Contact Info */}
-          <div>
-            <h3 className="font-semibold mb-3">Contact</h3>
-            <div className="space-y-1 text-sm text-gray-300">
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>anna@emailswithanna.com</span>
-              </div>
-            </div>
+          <div className="space-y-1 text-sm text-gray-300 mx-auto md:mx-0 text-center md:text-left">
+            <Link href="mailto:anna@emailswithanna.com" className="flex items-center space-x-2 w-max">
+              <Mail className="h-4 w-4" />
+              <span>anna@emailswithanna.com</span>
+            </Link>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="border-t mt-6 pt-6 text-center">
+        <div className="mt-6 pt-6 text-center opacity-70">
           <p className="text-sm">
             © {new Date().getFullYear()} Emails with Anna. All rights reserved.
           </p>

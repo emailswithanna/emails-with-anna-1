@@ -1,4 +1,5 @@
 import { MailCheck, Route, Newspaper, MonitorCog, ChartNoAxesCombined, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 
 export default function ServicesSection() {
   const services = [
@@ -34,29 +35,34 @@ export default function ServicesSection() {
     }
   ]
   return (
-    <section id="services" className="flex flex-col items-center bg-white w-full">
-      <h2 className="text-3xl font-bold mb-4 mt-20 text-center max-w-2xl">
-        Services
+    <section id="services" className="flex flex-col items-center w-full px-4 py-20 bg-gradient-to-b from-transparent via-white to-transparent">
+      
+      <h2 className="text-4xl md:text-5xl font-heading mb-4 text-center max-w-6xl relative">
+        {/* <span className="absolute inset-0 bg-yellow-500 -rotate-1 scale-x-105 opacity-50 mt-2 rounded-md"></span> */}
+        <span className="relative">What Anna Can Do for You</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 max-w-6xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 my-16 max-w-6xl">
         {services.map((service, index) => {
           const IconComponent = service.icon;
           return (
-            <div key={index} className="bg-secondary text-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-              <div className="flex items-center mx-auto justify-center w-12 h-12 bg-primary/10 rounded-full mb-4 group-hover:bg-primary/20 transition-colors">
-                <IconComponent className="text-white" size={24} />
+            <div key={index} className="transition-all duration-300 transform group">
+              <div className="flex items-center mx-auto justify-center mb-6">
+                <IconComponent className="text-primary size-14 stroke-[1.3] transition-all duration-300 p-1" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-semibold font-heading mb-3 text-center text-secondary transition-colors">
                 {service.title}
               </h3>
-              <p className="leading-relaxed text-gray-300">
+              <div className="my-4 w-full h-1 bg-gradient-to-r from-secondary/80 to-primary transform scale-x-30 group-hover:scale-x-100 transition-transform duration-300" />
+              <p className="leading-relaxed text-center">
                 {service.description}
               </p>
-              <div className="mt-4 w-full h-1 bg-gradient-to-r from-primary/20 to-primary/60 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </div>
           );
         })}
       </div>
+      <Link href="#contact" className="w-max btn !px-12">
+        Get Started
+      </Link>
     </section>
   );
 }

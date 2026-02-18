@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Montserrat, Poppins } from "next/font/google";
+import { DM_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-const poppins = Poppins({
+const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-fraunces",
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-montserrat",
+const dmSans = DM_Sans({
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${montserrat.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${fraunces.variable} ${dmSans.variable} antialiased min-h-screen flex flex-col`}>
         <Header />
         <main className="flex-1">
           {children}

@@ -24,12 +24,12 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="bg-primary text-white flex flex-col items-center w-full py-20 px-4">
-      <h2 className="text-3xl font-bold mb-4 text-center max-w-2xl">
+      <h2 className="text-3xl font-heading font-semibold mb-4 text-center max-w-2xl">
         Let's Work Together
       </h2>
-      <p className="max-w-3xl text-center text-gray-200 px-4 mb-8">
+      <p className="max-w-3xl text-center text-sm md:text-base text-gray-200 mb-8">
         Ready to build an email program that drives real results?
-        Let's talk about what you need and how I can help.
+        <br /> Let's talk about what you need and how I can help.
       </p>
 
       <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4 mb-8">
@@ -60,7 +60,7 @@ export default function ContactSection() {
           className="w-full px-4 py-2 rounded-md text-black bg-white resize-none"
           required
         />
-        <button type="submit" className="w-full btn bg-white text-primary hover:bg-gray-100">
+        <button type="submit" className="!w-full btn-outline">
           Get in Touch
         </button>
       </form>
