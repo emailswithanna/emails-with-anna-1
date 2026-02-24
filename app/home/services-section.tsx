@@ -1,6 +1,7 @@
 import type { ServicesSection } from "@/sanity/lib/types";
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
+import Image from "next/image";
 
 export default function ServicesSection({ content }: { content?: ServicesSection }) {
   const services = content?.services || [
@@ -48,34 +49,38 @@ export default function ServicesSection({ content }: { content?: ServicesSection
   }
 
   return (
-    <section id="services" className="flex flex-col items-center w-full px-4 py-20 bg-gradient-to-b from-transparent via-white to-transparent">
+    <section id="services" className="flex flex-col items-center w-full px-4 py-20 bg-gradient-to-b from-transparent via-white to-transparent relative">
+      {/* Background Image */}
+      {/* <Image src="/doodle-bg.png" alt="Background" fill className="object-cover opacity-3 z-0" /> */}
 
-      <h2 className="text-4xl md:text-5xl font-heading mb-4 text-center max-w-6xl relative">
-        {/* <span className="absolute inset-0 bg-yellow-500 -rotate-1 scale-x-105 opacity-50 mt-2 rounded-md"></span> */}
+      <h2 className="text-4xl md:text-5xl font-heading text-secondary mb-4 text-center max-w-6xl relative z-10">
+        <span className="absolute inset-0 bg-primary/50 translate-y-4 -rotate-1 scale-x-105 opacity-50 mt-2 rounded-md" />
         <span className="relative">
           {content?.title || "What Anna Can Do for You"}
         </span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 my-16 max-w-6xl">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 my-16 max-w-6xl relative z-10">
         {services.map((service, index) => {
           const IconComponent = getIconComponent(service.icon);
           return (
-            <div key={index} className="transition-all duration-300 transform group">
+            <div key={index} className="transition-all duration-300 transform group cursor-default">
               <div className="flex items-center mx-auto justify-center mb-6">
-                <IconComponent className="text-primary size-14 stroke-[1.3] transition-all duration-300 p-1" />
+                <IconComponent className="text-secondary size-14 stroke-[1.3] group-hover:text-primary transition-all duration-300 p-1" />
               </div>
-              <h3 className="text-xl font-semibold font-heading mb-3 text-center text-secondary transition-colors">
+              <h3 className="text-xl font-semibold font-heading mb-3 text-center group-hover:text-primary text-secondary transition-colors">
                 {service.title}
               </h3>
-              <div className="my-4 w-full h-1 bg-gradient-to-r from-secondary/80 to-primary transform scale-x-30 transition-transform duration-300" />
-              <p className="leading-relaxed text-center">
+              <div className="my-4 w-full h-1 bg-gradient-to-r from-secondary/80 to-primary transform scale-x-30 group-hover:scale-x-60 transition-transform duration-300" />
+              <p className="leading-relaxed text-center text-secondary group-hover:text-secondary/90 transition-colors duration-300">
                 {service.description}
               </p>
             </div>
           );
         })}
       </div>
-      <Link href="#contact" className="w-max btn !px-12">
+
+      <Link href="#contact" className="w-max btn !px-12 relative z-10">
         {content?.contactButtonText || "Get Started"}
       </Link>
     </section>

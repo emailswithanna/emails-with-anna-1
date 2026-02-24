@@ -4,8 +4,11 @@ import type { HeroSection } from "@/sanity/lib/types";
 
 export default function HeroSection({ content }: { content?: HeroSection }) {
   return (
-    <section className="flex flex-col items-center bg-primary w-full text-white py-20 px-4">
-      <div className='max-w-6xl flex flex-col items-center md:items-start w-full'>
+    <section className="flex flex-col items-center bg-primary w-full text-white py-20 px-4 relative">
+      {/* Background Image */}
+      <Image src="/doodle-bg.png" alt="Background" fill className="object-cover opacity-2 z-0" />
+
+      <div className='max-w-6xl flex flex-col items-center md:items-start w-full relative z-10'>
         <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-8 w-full justify-between">
 
           <div>
