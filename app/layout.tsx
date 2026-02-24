@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { DisableDraftMode } from "./components/disable-draft-mode";
+import { Analytics } from '@vercel/analytics/next';
 
 const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
@@ -39,6 +40,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
             <VisualEditing />
           </>
         )}
+        <Analytics />
       </body>
     </html>
   );
