@@ -31,14 +31,14 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <Header />
         <main className="flex-1">
           {children}
-          {(await draftMode()).isEnabled && (
-            <>
-              <DisableDraftMode />
-              <VisualEditing />
-            </>
-          )}
         </main>
         <Footer />
+        {(await draftMode()).isEnabled && (
+          <>
+            <DisableDraftMode />
+            <VisualEditing />
+          </>
+        )}
       </body>
     </html>
   );

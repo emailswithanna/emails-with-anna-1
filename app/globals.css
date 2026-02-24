@@ -28,11 +28,11 @@ html {
 }
 
 .btn {
-  @apply bg-secondary text-white border-2 border-transparent hover:bg-white hover:text-foreground py-2 px-6 w-max rounded-md transition-all duration-300 cursor-pointer shadow-md hover:shadow-lg;
+  @apply bg-secondary text-white border-2 border-transparent py-2 px-6 w-max rounded-md cursor-pointer shadow-md hover:shadow-2xl transition-shadow;
 }
 
-.btn-outline {
-  @apply bg-white text-foreground border-2 border-transparent hover:bg-transparent hover:text-white hover:border-white py-2 px-6 w-max rounded-md transition-all duration-300 cursor-pointer shadow-md hover:shadow-lg;
+.btn-white {
+  @apply bg-white text-foreground border-2 border-transparent py-2 px-6 w-max rounded-md cursor-pointer shadow-md hover:shadow-2xl transition-shadow;
 }
 
 @custom-variant hover (&:hover);

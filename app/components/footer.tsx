@@ -1,8 +1,15 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith('/studio')) { return null; }
+  
   return (
     <footer className="bg-secondary text-white py-8">
       <div className="mx-auto px-4">
