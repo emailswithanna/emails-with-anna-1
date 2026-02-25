@@ -11,7 +11,7 @@ export default function AboutSection({ content }: { content?: AboutSection }) {
       <Image src="/doodle-bg.png" alt="Background" fill className="object-cover opacity-3 z-0" />
 
       <div className="flex flex-col md:flex-row text-center md:text-left items-center z-10">
-        <Image src={content?.image ? urlFor(content.image).url() : "/white-logo.svg"}
+        <Image src={content?.image?.url ? urlFor(content.image.url).url() : "/white-logo.svg"}
           alt="Emails with Anna"
           width={300} height={300}
           className="w-48 h-48 md:w-64 md:h-64 mx-auto my-6 md:mb-0 md:mr-12" />
