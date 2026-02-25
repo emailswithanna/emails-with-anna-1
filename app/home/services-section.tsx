@@ -53,7 +53,7 @@ export default function ServicesSection({ content }: { content?: ServicesSection
       {/* Background Image */}
       {/* <Image src="/doodle-bg.png" alt="Background" fill className="object-cover opacity-3 z-0" /> */}
 
-      <h2 className="text-4xl md:text-5xl font-heading text-secondary mb-4 text-center max-w-6xl relative z-10">
+      <h2 className="text-4xl md:text-5xl font-heading text-foreground mb-4 text-center max-w-6xl relative z-10">
         <span className="absolute inset-0 bg-primary/50 translate-y-4 -rotate-1 scale-x-105 opacity-50 mt-2 rounded-md" />
         <span className="relative">
           {content?.title || "What Anna Can Do for You"}
