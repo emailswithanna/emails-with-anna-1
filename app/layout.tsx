@@ -7,6 +7,7 @@ import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { DisableDraftMode } from "./components/disable-draft-mode";
 import { Analytics } from '@vercel/analytics/next';
+import { config } from "@/config";
 
 const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
@@ -21,8 +22,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Emails with Anna",
-  description: "Email services that help businesses connect with their audience and drive meaningful results. Thoughtful email marketing, built for real humans.",
+  title: config.title,
+  description: config.description,
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
