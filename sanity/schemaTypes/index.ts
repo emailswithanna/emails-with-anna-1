@@ -1,5 +1,5 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import { pageType } from '../page-type'
+import { pageType } from './page-type'
 import { homeContent } from './home/home-content'
 import { heroSection } from './home/hero-section'
 import { servicesSection } from './home/services-section'
