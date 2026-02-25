@@ -7,7 +7,6 @@ import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { DisableDraftMode } from "./components/disable-draft-mode";
 import { Analytics } from '@vercel/analytics/next';
-import { SanityLive } from "@/sanity/lib/live";
 
 const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
@@ -42,7 +41,6 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           </>
         )}
         <Analytics />
-        <SanityLive />
       </body>
     </html>
   );
