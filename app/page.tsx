@@ -12,7 +12,7 @@ export default async function Home() {
   const pageData = (await sanityFetch({query: HOME_PAGE_QUERY, params: {}}))?.data as Page;
   
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col"> 
       <HeroSection content={pageData.homeContent?.heroSection} />
       <ServicesSection content={pageData.homeContent?.servicesSection} />
       <AboutSection content={pageData.homeContent?.aboutSection} />
