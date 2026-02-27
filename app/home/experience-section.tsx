@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ExperienceSection({ content }: { content?: ExperienceSection }) {
   return (
-    <section className="bg-gradient-to-tl from-primary via-primary to-secondary/85 text-white flex flex-col items-center w-full py-20 px-4">
+    <section className="bg-primary text-white flex flex-col items-center w-full py-20 px-4">
       <h2 className="text-4xl md:text-5xl font-heading mb-6 text-center max-w-2xl">
         {content?.title || "Experience"}
       </h2>
