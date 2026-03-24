@@ -23,7 +23,7 @@ export const servicesSection = defineType({
             defineField({
               name: 'title',
               title: 'Title',
-              type: 'string',
+              type: 'text',
             }),
             defineField({
               name: 'description',

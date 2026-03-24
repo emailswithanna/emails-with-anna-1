@@ -68,11 +68,11 @@ export default function ServicesSection({ content }: { content?: ServicesSection
               <div className="flex items-center mx-auto justify-center mb-6">
                 <IconComponent className="text-secondary size-14 stroke-[1.3] group-hover:text-primary transition-all duration-300 p-1" />
               </div>
-              <h3 className="text-xl font-semibold font-heading mb-3 text-center group-hover:text-primary text-secondary transition-colors">
+              <h3 className="text-xl font-semibold font-heading mb-3 text-center group-hover:text-primary text-secondary transition-colors whitespace-pre-line">
                 {service.title}
               </h3>
               <div className="my-4 w-full h-1 bg-gradient-to-r from-secondary/80 to-primary transform scale-x-30 group-hover:scale-x-60 transition-transform duration-300" />
-              <p className="leading-relaxed text-center text-secondary group-hover:text-secondary/90 transition-colors duration-300">
+              <p className="leading-relaxed text-center text-secondary group-hover:text-secondary/90 transition-colors duration-300 whitespace-pre-line">
                 {service.description}
               </p>
             </div>
