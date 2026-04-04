@@ -1,55 +1,44 @@
-import { groq } from 'next-sanity'
+import { defineQuery } from 'next-sanity'
 
-export const HOME_PAGE_QUERY = groq`
-  *[_type == "page" && pageType == "home"][0] {
-    _id,
-    pageType,
-    slug,
-    homeContent {
-      heroSection {
-        tagline,
+export const HOME_PAGE_QUERY = defineQuery(`
+  *[_id == "homePage" && _type == "homePage"][0] {
+    heroSection {
+      tagline,
+      description,
+      contactButtonText,
+      servicesButtonText
+    },
+    servicesSection {
+      title,
+      services[] {
+        title,
         description,
-        contactButtonText,
-        servicesButtonText
+        icon
       },
-      servicesSection {
-        title,
-        services[] {
-          title,
-          description,
-          icon
-        },
-        contactButtonText
-      },
-      aboutSection {
-        title,
-        text,
-        "image": image.asset->{
-          url,
-          alt
-        },
-        connectButtonText
-      },
-      toolsSection {
-        title,
-        subtitle,
-        "tools": tools[].asset->{
-          url,
-          alt
-        }
-      },
-      experienceSection {
-        title,
-        experiences[] {
-          name,
-          link
-        }
-      },
-      contactSection {
-        title,
-        subtitle,
-        submitButtonText
+      contactButtonText
+    },
+    aboutSection {
+      title,
+      text,
+      image,
+      connectButtonText
+    },
+    toolsSection {
+      title,
+      subtitle,
+      tools
+    },
+    experienceSection {
+      title,
+      experiences[] {
+        name,
+        link
       }
+    },
+    contactSection {
+      title,
+      subtitle,
+      submitButtonText
     }
   }
-`
+`)

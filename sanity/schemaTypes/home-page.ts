@@ -1,9 +1,9 @@
-import { defineField, defineType } from 'sanity'
+import {defineField, defineType} from 'sanity'
 
-export const homeContent = defineType({
-  name: 'homeContent',
-  title: 'Home Page Content',
-  type: 'object',
+export const homePage = defineType({
+  name: 'homePage',
+  title: 'Home Page',
+  type: 'document',
   fields: [
     defineField({
       name: 'heroSection',
@@ -36,4 +36,11 @@ export const homeContent = defineType({
       type: 'contactSection',
     })
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Home Page',
+      }
+    }
+  }
 })

@@ -1,10 +1,12 @@
-export interface Page {
-  pageType: 'home';
-  slug?: string;
-  homeContent?: HomeContent;
-}
+export interface SanityImage {
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+  alt?: string;
+};
 
-export interface HomeContent {
+export interface HomePage {
   heroSection: HeroSection;
   servicesSection: ServicesSection;
   aboutSection: AboutSection;
@@ -12,12 +14,14 @@ export interface HomeContent {
   experienceSection: ExperienceSection;
   contactSection: ContactSection;
 }
+
 export interface HeroSection {
   tagline: string;
   description: string;
   contactButtonText: string;
   servicesButtonText: string;
 };
+
 export interface ServicesSection {
   title: string;
   services: {
@@ -27,30 +31,28 @@ export interface ServicesSection {
   } [];
   contactButtonText: string;
 };
+
 export interface AboutSection {
   title: string;
   text: string;
-  image: {
-    url: string;
-    alt: string;
-  };
+  image?: SanityImage;
   connectButtonText?: string;
 };
+
 export interface ToolsSection {
   title: string;
   subtitle: string;
-  tools: {
-    url: string;
-    alt: string;
-  } [];
+  tools: SanityImage[];
 };
+
 export interface ExperienceSection {
   title: string;
   experiences: {
     name: string;
-    link: string;
+    link?: string;
   } [];
 };
+
 export interface ContactSection {
   title: string;
   subtitle: string;

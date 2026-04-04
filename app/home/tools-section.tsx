@@ -13,8 +13,8 @@ export default function ToolsSection({ content }: { content?: ToolsSection }) {
         <div className="flex flex-wrap justify-center my-12 gap-8 items-center ">
           {content.tools.map((tool, index) => (
             <Image key={index} className="w-32 md:w-48 h-full object-contain opacity-80 hover:opacity-100 transition-opacity duration-300" 
-              src={urlFor(tool?.url)?.url()}
-              alt="Emails with Anna Tool"
+              src={tool?.asset ? urlFor(tool).url() : "/white-logo.svg"}
+              alt={tool?.alt || "Emails with Anna Tool"}
               width={300} height={300} />
           ))}
         </div>
