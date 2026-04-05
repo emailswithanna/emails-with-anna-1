@@ -6,6 +6,14 @@ export interface SanityImage {
   alt?: string;
 };
 
+export interface SiteSettings {
+  title: string;
+  description: string;
+  image?: SanityImage;
+  contactEmail?: string;
+  linkedInUrl?: string;
+};
+
 export interface HomePage {
   heroSection: HeroSection;
   servicesSection: ServicesSection;

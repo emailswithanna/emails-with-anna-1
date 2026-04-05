@@ -8,6 +8,10 @@ import { VisualEditing } from "next-sanity/visual-editing";
 import { DisableDraftMode } from "./components/disable-draft-mode";
 import { Analytics } from '@vercel/analytics/next';
 import { config } from "@/config";
+import { sanityFetch } from "@/sanity/lib/live";
+import { SiteSettings } from "@/sanity/lib/types";
+import { urlFor } from "@/sanity/lib/image";
+import { METADATA_QUERY } from "@/sanity/lib/queries";
 
 const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
@@ -21,10 +25,19 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: config.title,
-  description: config.description,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const siteSettings = (await sanityFetch({ query: METADATA_QUERY, params: {} }))?.data as SiteSettings | null;
+
+  return {
+    title: siteSettings?.title || config.title,
+    description: siteSettings?.description || config.description,
+    openGraph: {
+      title: siteSettings?.title || config.title,
+      description: siteSettings?.description || config.description,
+      images: siteSettings?.image ? [urlFor(siteSettings.image).url()] : undefined,
+    },
+  };
+}
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

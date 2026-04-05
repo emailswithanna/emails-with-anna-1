@@ -9,8 +9,7 @@ import { HOME_PAGE_QUERY } from "@/sanity/lib/queries";
 import { HomePage } from "@/sanity/lib/types";
 
 export default async function Home() {
-  const pageData = (await sanityFetch({ query: HOME_PAGE_QUERY, params: {} }))
-    ?.data as HomePage | null;
+  const pageData = (await sanityFetch({ query: HOME_PAGE_QUERY, params: {} }))?.data as HomePage | null;
   
   return (
     <div className="flex flex-col"> 

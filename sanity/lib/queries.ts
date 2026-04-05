@@ -1,7 +1,7 @@
 import { defineQuery } from 'next-sanity'
 
 export const HOME_PAGE_QUERY = defineQuery(`
-  *[_id == "homePage" && _type == "homePage"][0] {
+  *[_type == "homePage"][0] {
     heroSection {
       tagline,
       description,
@@ -40,5 +40,13 @@ export const HOME_PAGE_QUERY = defineQuery(`
       subtitle,
       submitButtonText
     }
+  }
+`)
+
+export const METADATA_QUERY = defineQuery(`
+  *[_type == "siteSettings"][0] {
+    title,
+    description,
+    image,
   }
 `)

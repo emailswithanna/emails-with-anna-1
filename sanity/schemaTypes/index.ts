@@ -6,6 +6,7 @@ import { toolsSection } from './home/tools-section'
 import { experienceSection } from './home/experience-section'
 import { contactSection } from './home/contact-section'
 import { homePage } from './home-page'
+import { siteSettings } from './site-settings'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -16,5 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     toolsSection, 
     experienceSection,
     contactSection,
+    siteSettings,
   ],
 }

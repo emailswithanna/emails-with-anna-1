@@ -2,16 +2,19 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import ContactEmail from "./template";
 import { config } from "@/config";
+import { sanityFetch } from "@/sanity/lib/live";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
     const { name, email, message } = await req.json();
-
+    const contactEmail = (await sanityFetch({ query: '*[_type == "siteSettings"][0].contactEmail', params: {} }))
+      ?.data as string | null; 
+  
     await resend.emails.send({
       from: `contact@${config.domain}`,
-      to: config.contactEmail,
+      to: contactEmail || config.contactEmail,
       subject: `New Message from ${name}`,
       react: ContactEmail({
         name,

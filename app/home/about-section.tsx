@@ -1,10 +1,14 @@
 import { config } from "@/config";
 import { urlFor } from "@/sanity/lib/image";
+import { sanityFetch } from "@/sanity/lib/live";
 import type { AboutSection } from "@/sanity/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function AboutSection({ content }: { content?: AboutSection }) {
+export default async function AboutSection({ content }: { content?: AboutSection }) {
+  const linkedInUrl = (await sanityFetch({ query: '*[_type == "siteSettings"][0].linkedInUrl', params: {} }))
+    ?.data as string | null || config.linkedInUrl;
+
   return (
     <section id="about" className="bg-secondary text-white flex flex-col items-center w-full py-20 px-4 relative">
       {/* Background Image */}
@@ -31,7 +35,7 @@ export default function AboutSection({ content }: { content?: AboutSection }) {
             `}
           </p>
 
-          <Link href={config.linkedin} target="_blank" rel="noopener noreferrer" className="btn-white block mt-10 mx-auto md:mx-0 w-max">
+          <Link href={linkedInUrl} target="_blank" rel="noopener noreferrer" className="btn-white block mt-10 mx-auto md:mx-0 w-max">
             Connect on LinkedIn
           </Link>
         </div>
