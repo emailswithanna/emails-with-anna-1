@@ -17,7 +17,7 @@ export default async function Home() {
       <ServicesSection content={pageData?.servicesSection} />
       <AboutSection content={pageData?.aboutSection} />
       <ToolsSection content={pageData?.toolsSection} />
-      {/* <ExperienceSection content={pageData?.experienceSection} /> */}
+      <ExperienceSection content={pageData?.experienceSection} />
       <ContactSection content={pageData?.contactSection} />
     </div>
   );
