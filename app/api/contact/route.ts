@@ -10,11 +10,11 @@ export async function POST(req: NextRequest) {
   try {
     const { name, email, message } = await req.json();
     const contactEmail = (await sanityFetch({ query: '*[_type == "siteSettings"][0].contactEmail', params: {} }))
-      ?.data as string | null; 
+      ?.data || config.contactEmail as string | null; 
   
     await resend.emails.send({
       from: `contact@${config.domain}`,
-      to: contactEmail || config.contactEmail,
+      to: contactEmail,
       subject: `New Message from ${name}`,
       react: ContactEmail({
         name,

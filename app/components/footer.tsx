@@ -4,12 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { sanityFetch } from '@/sanity/lib/live';
+import { config } from '@/config';
 
-export default function Footer() {
+export default async function Footer() {
   const pathname = usePathname();
+  const contactEmail = (await sanityFetch({ query: '*[_type == "siteSettings"][0].contactEmail', params: {} }))
+    ?.data || config.contactEmail as string | null;
 
   if (pathname.startsWith('/studio')) { return null; }
-  
+
   return (
     <footer className="bg-secondary text-white py-8">
       <div className="mx-auto px-4">
@@ -35,9 +39,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-1 text-sm text-gray-300 mx-auto md:mx-0 text-center md:text-left">
-            <Link href="mailto:emailswithanna@gmail.com" className="flex items-center space-x-2 w-max">
+            <Link href={`mailto:${contactEmail}`} className="flex items-center space-x-2 w-max">
               <Mail className="h-4 w-4" />
-              <span>emailswithanna@gmail.com</span>
+              <span>{contactEmail}</span>
             </Link>
           </div>
         </div>
