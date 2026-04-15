@@ -35,9 +35,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-1 text-sm text-gray-300 mx-auto md:mx-0 text-center md:text-left">
-            <Link href="mailto:anna@emailswithanna.com" className="flex items-center space-x-2 w-max">
+            <Link href="mailto:emailswithanna@gmail.com" className="flex items-center space-x-2 w-max">
               <Mail className="h-4 w-4" />
-              <span>anna@emailswithanna.com</span>
+              <span>emailswithanna@gmail.com</span>
             </Link>
           </div>
         </div>
